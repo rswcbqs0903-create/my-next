@@ -1,6 +1,7 @@
 import { createPublicClient, formatEther, http, isAddress } from "viem";
 import { sepolia } from "viem/chains";
 import Page2 from "./page2";
+import Page3 from "./page3";
 
 const sepoliaRpcUrl = process.env.SEPOLIA_RPC_URL;
 const address = getTask1BalanceAddress();
@@ -44,7 +45,8 @@ export default async function Task1Page() {
         </h1>
         <p className="text-base leading-7 text-zinc-600">
           使用 viem 创建 Public Client 查询测试 ETH 余额，并使用 WalletClient
-          通过浏览器钱包发送 Sepolia ETH。
+          通过浏览器钱包发送 Sepolia ETH，同时调用 ERC-20 合约的 balanceOf
+          方法读取 token 余额。
         </p>
       </section>
 
@@ -108,6 +110,7 @@ console.log(formatEther(balance));`}</code>
       </pre>
 
       <Page2 />
+      <Page3 />
     </main>
   );
 }
