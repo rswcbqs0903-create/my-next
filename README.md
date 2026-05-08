@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Next
 
-## Getting Started
+这是一个基于 Next.js 的 viem 学习项目，用于练习和展示基础链上交互任务。
 
-First, run the development server:
+## 当前功能
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- `app/page.tsx`：项目首页，当前直接渲染 viem 任务 1 页面。
+- `app/task1/page.tsx`：使用 viem 连接 Sepolia 测试网，查询指定地址的测试 ETH 余额。
+
+## 关键目录结构
+
+```text
+app/
+  globals.css       全局样式
+  layout.tsx        应用根布局
+  page.tsx          首页，渲染 viem 任务 1
+  task1/
+    page.tsx        viem 任务 1：查询 Sepolia 测试网地址余额
+.env.local          本地环境变量，包含 Sepolia RPC 地址
+package.json        项目依赖和脚本
+pnpm-lock.yaml      pnpm 锁文件
+README.md           项目说明
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 环境变量
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+SEPOLIA_RPC_URL=https://ethereum-sepolia-rpc.publicnode.com
+TASK1_BALANCE_ADDRESS=0xd1C18624549f755fFb778F19760d8110548937b8
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`app/task1/page.tsx` 会从环境变量读取 Sepolia RPC 地址和要查询余额的钱包地址。
 
-## Learn More
+## 开发命令
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dev
+pnpm lint
+pnpm build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+任务 1 页面地址：
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+http://localhost:3000/task1
+```
