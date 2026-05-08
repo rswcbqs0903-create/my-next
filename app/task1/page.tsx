@@ -1,5 +1,6 @@
 import { createPublicClient, formatEther, http, isAddress } from "viem";
 import { sepolia } from "viem/chains";
+import Page2 from "./page2";
 
 const sepoliaRpcUrl = process.env.SEPOLIA_RPC_URL;
 const address = getTask1BalanceAddress();
@@ -39,11 +40,11 @@ export default async function Task1Page() {
       <section className="space-y-3">
         <p className="text-sm font-medium text-zinc-500">Viem Task 1</p>
         <h1 className="text-3xl font-semibold text-zinc-950">
-          查询 Sepolia 测试网地址余额
+          Sepolia 测试网基础交互
         </h1>
         <p className="text-base leading-7 text-zinc-600">
-          使用 viem 创建 Public Client，连接 Sepolia 测试网，并调用 getBalance
-          查询指定地址的 ETH 余额。
+          使用 viem 创建 Public Client 查询测试 ETH 余额，并使用 WalletClient
+          通过浏览器钱包发送 Sepolia ETH。
         </p>
       </section>
 
@@ -105,6 +106,8 @@ const balance = await client.getBalance({
 
 console.log(formatEther(balance));`}</code>
       </pre>
+
+      <Page2 />
     </main>
   );
 }
